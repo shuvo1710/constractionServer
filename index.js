@@ -27,6 +27,16 @@ const run = async () => {
             res.send(project)
         })
 
+        app.get('/projectId/:id', async (req, res)=>{
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const projects= await ProjectCollection.findOne(query)
+            res.send(projects)
+            
+        })
+
+       
+
 
     }
     finally {
